@@ -137,7 +137,7 @@ def notification_callback(topic, msg):
 
 def user_exists_in_fas(fasjson, user):
     """Return true if the user exists in FAS."""
-    return fasjson.get_user(user) is not None
+    return fasjson.get_user(username=user) is not None
 
 
 def get_pagure_authors(authors):
@@ -160,7 +160,7 @@ def get_pagure_authors(authors):
 
 def nick2fas(nick, fasjson):
     """Return the user in FAS."""
-    return fasjson.get_user(nick)
+    return fasjson.get_user(username=nick)
 
 
 def email2fas(email, fasjson):
