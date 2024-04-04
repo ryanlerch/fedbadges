@@ -39,7 +39,7 @@ class LDAPClient:
     def connect(self):
         self.conn = ldap.initialize(self.config["URI"].split(" ")[0])
         self.conn.protocol_version = 3
-        self.conn.sasl_interactive_bind_s("", ldap.sasl.gssapi())
+        self.conn.sasl_gssapi_bind_s(authz_id="")
 
     def search(self, base, filters, attrs):
         page_size = 1000
