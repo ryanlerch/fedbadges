@@ -47,7 +47,8 @@ def openid2fas(openid, config):
 def github2fas(uri, config, fasjson):
     m = re.search(r"^https?://api.github.com/users/([a-z][a-z0-9-]+)$", uri)
     if not m:
-        return uri
+        log.warning("Can't extract the username from %r", uri)
+        return None
     github_username = m.group(1)
     response = fasjson.search_users(github_username__exact=github_username)
     if not response.ok:
