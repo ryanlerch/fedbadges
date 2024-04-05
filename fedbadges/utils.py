@@ -168,7 +168,7 @@ def email2fas(email, fasjson):
     if email.endswith("@fedoraproject.org"):
         return nick2fas(email.rsplit("@", 1)[0], fasjson)
 
-    result = fasjson.search_users(email__exact=email)
+    result = fasjson.search_users(email=email)
     if not result:
         return None
     return result[0]

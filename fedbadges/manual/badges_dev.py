@@ -30,7 +30,7 @@ def gather_authors(repodir):
 
 
 def email_to_fas_accounts(fasjson, email):
-    response = fasjson.search(email__exact=email)
+    response = fasjson.search(email=email)
     if response.page["total_results"] != 1:
         return None
     return response.result[0]["username"]
