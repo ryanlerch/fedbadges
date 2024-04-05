@@ -64,7 +64,6 @@ pagure-messages = {version = "*", optional = true}
 mediawiki-messages = {version = "*", optional = true}
 koschei-messages = {version = "*", optional = true}
 fedora-messaging-git-hook-messages = {version = "*", optional = true}
-python-ldap = "^3.4.4"
 
 [tool.poetry.group.dev.dependencies]
 pytest = ">=7.0.0"

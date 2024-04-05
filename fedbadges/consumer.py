@@ -161,6 +161,7 @@ class FedoraBadgesConsumer:
         log.debug("Done with %s, %s", message.topic, message.id)
 
     def _reload_rules(self):
+        log.debug("Check for badges updates in the repo")
         tahrir = self._get_tahrir_client()
         self.badge_rules = self._rules_repo.load_all(tahrir)
 
