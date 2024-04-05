@@ -19,10 +19,10 @@ def get_awards(fasjson, group_badges):
     for group_badge in group_badges:
         group_name = group_badge["group"]
         badge_id = group_badge["badge"]
-        membership_types = group_badge.get("memberships", ("members", "sponsors"))
+        membership_types = group_badge.get("memberships", ("member", "sponsor"))
         log.debug("Processing %s", group_name)
         for membership_type in membership_types:
-            method = getattr(fasjson, f"list_group_{membership_type}")
+            method = getattr(fasjson, f"list_group_{membership_type}s")
             try:
                 members = method(groupname=group_name).result
             except fasjson_client.errors.APIError:
