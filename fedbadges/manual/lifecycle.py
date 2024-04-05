@@ -11,12 +11,14 @@ import fedbadges.utils
 from .utils import award_badge, option_debug, setup_logging
 
 
+# Users in the fedora-contributor group are members of at least 1 group.
+REQUIRED_GROUPS = ["fedora-contributor"]
+
 log = logging.getLogger(__name__)
 
 
 def get_fas_userlist(fasjson, threshold):
-    # Users in the fedora-contributor group are members of at least 1 group.
-    search_terms = dict(group="fedora-contributor", creation__before=threshold.isoformat())
+    search_terms = dict(group=REQUIRED_GROUPS, creation__before=threshold)
     page_number = 0
     next_page_exists = True
     while next_page_exists:
