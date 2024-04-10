@@ -122,13 +122,12 @@ def _publish(message):
     fm_api.publish(message)
 
 
-def notification_callback(topic, msg):
+def notification_callback(message):
     """This is a callback called by tahrir_api whenever something
     it deems important has happened.
 
     It is just used to publish fedmsg messages.
     """
-    message = fm_api.Message(topic=topic, body=msg)
     try:
         _publish(message)
     except fm_exceptions.BaseException:
